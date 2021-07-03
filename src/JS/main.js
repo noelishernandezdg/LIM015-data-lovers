@@ -17,6 +17,7 @@ function homeFilms() {
 
 home.addEventListener("click", background);
 
-function background(){
-    const background = document.body.style.backgroundImage = "url(./img/fondoGaleria.jpg)";
+function background() {
+    document.body.style.backgroundImage = "url(./img/fondoGaleria.jpg)";
+    document.body.style.backgroundSize = "cover";
 }
