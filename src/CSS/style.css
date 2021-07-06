@@ -141,7 +141,18 @@ input{
         color: white;
         text-decoration: none;
         font-size: 30px;
-        margin: 8px 10px; 
+        margin: 8px 10px;
         width: max-content;
     }
+}
+
+.figure-poster{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h3{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
 }
