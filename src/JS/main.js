@@ -25,6 +25,8 @@ function background() {
     document.body.style.boxSizing = "border-box";
 }
 
+// Galeria de poster de peliculas
+
 const posters = data.films.map((item) => {
     const createFigure = document.createElement('figure');
 
@@ -44,9 +46,22 @@ posters.forEach((poster) => {
     document.querySelector("#fila").appendChild(poster);
 })
 
-// function x(item){
-//     console.table(item);
-// }
+// Busqueda de peliculas
+searchFilms(".nav-home-item", "figure")
 
-// const y = data.films.filter(x);
+function searchFilms(input, selector){
+    document.addEventListener("keyup", (e) =>{
+        if (e.target.matches(input)) {
+            // console.log(e.key);
+            console.log(e.target.value);
 
+            if (e.key === "Escape") e.target.value = "";
+
+            document.querySelectorAll(selector).forEach((el) =>
+                el.textContent.toLowerCase().includes(e.target.value)
+                ? el.classList.remove("search")
+                : el.classList.add("search")
+            );
+        }
+    });
+}

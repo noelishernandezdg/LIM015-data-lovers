@@ -152,7 +152,7 @@ input{
     display: table;
 }
 
-.div-gallery{
+.article-gallery{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,4 +166,18 @@ figure{
 figcaption{
     font-size: 15px;
     text-align: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+figure img{
+    width: 100%;
+    height: auto;
+}
+
+.search{
+    visibility: hidden;
+    opacity: 0;
+    order: 1;
+    transition: 0.2s;
 }
