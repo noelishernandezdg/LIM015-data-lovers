@@ -65,6 +65,18 @@ function searchFilms(input, selector){
 
 const selectFilter = document.querySelector("#selectFilter");
 
+function deleteDuplicateFilter (array) {
+    const newData = [];
+    return array.filter(function (element) {
+        if (!(element in newData)) {
+            newData[element] = true;
+            return true;
+            console.log(newData)
+        }
+        return false;
+    });
+}
+
 data.films.map((item) => {
     const createOption = document.createElement('option');
     createOption.value = `${item.director}`;
