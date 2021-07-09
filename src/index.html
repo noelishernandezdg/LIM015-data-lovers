@@ -9,30 +9,38 @@
   <body>
     <header id="header">
       <nav class="nav-home">
-        <a href="#"><img src="./img/logo.png" alt="log" class="logo"></a>
-        <input type="search" name="" id="" class="nav-home-item" placeholder="&#128269 Search">
-        <ul class="ul-nav">
-          <li>
-            <select name="selectOrder" id="selectOrder" class="nav-home-item">
-              <option value="order">Order</option>
+        <section class="section-logo">
+          <img src="./img/logo.png" alt="log" class="logo">
+        </section>
+        <section class="section-search">
+          <input type="search" name="" id="" class="input-search" placeholder="&#128269 Search">
+        </section>
+        <section class="section-selects">
+          <section class="section-order">
+            <select name="selectOrder" id="selectOrder" class="selects">
+              <option value="order" disable selected>Order By</option>
+              <option value="order">Release Date</option>
             </select>
-          </li>
-          <li>
-            <select name="selectFilter" id="selectFilter" class="nav-home-item">
-              <option value="filtrar">Filter</option>
+          </section>
+          <section class="section-filter">
+            <select name="selectFilter" id="selectFilter" class="selects">
+              <option value="filter" disable selected>Filter By</option>
+              <option value="filter">All</option>
             </select>
-          </li>
-        </ul>
+          </section>
+        </section>
       </nav>
     </header>
     <main>
-      <div class="div-button">
-        <button id="btnHome">HOME</button>
-      </div>
-      <article class="article-gallery fila" id="fila">
-      </article>
+      <section class="section-button">
+        <button id="btnHome" class="button-home">HOME</button>
+      </section>
+      <section class="section-gallery fila" id="fila">
+      </section>
     </main>
-    <footer></footer>
+    <footer id="footer">
+      <p>&#169; 2021 - Developed by Grecia & Noelis</p>
+    </footer>
     <script src="./JS/main.js" type="module"></script>
     <script src="https://kit.fontawesome.com/50e6c776f6.js" crossorigin="anonymous"></script>
   </body>

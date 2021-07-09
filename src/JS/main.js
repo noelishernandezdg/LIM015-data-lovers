@@ -1,11 +1,10 @@
 import { filterData } from './data.js';
-// import data from './data/lol/lol.js';
+
 import data from '../data/ghibli/ghibli.js';
-// import data from './data/rickandmorty/rickandmorty.js';
 
-// console.log(example, data);
-
+// Ocultamos header y galeria
 document.getElementById("header").style.display = "none";
+document.getElementById("footer").style.display = "none";
 document.getElementById("fila").style.display = "none";
 
 const home = document.getElementById("btnHome");
@@ -13,13 +12,11 @@ home.addEventListener("click" , homeFilms);
 
 function homeFilms() {
     document.getElementById("btnHome").style.display="none";
-    document.getElementById("header").style.display= "block";
+    document.getElementById("header").style.display= "flex";
+    document.getElementById("footer").style.display="flex";
     document.getElementById("fila").style.display="flex";
-}
 
-home.addEventListener("click", background);
-
-function background() {
+    // Agrega estilos a Inicio
     document.body.style.backgroundImage = "url(./img/fondoGaleria.jpg)";
     document.body.style.backgroundSize = "cover";
     document.body.style.boxSizing = "border-box";
@@ -47,7 +44,7 @@ posters.forEach((poster) => {
 })
 
 // Busqueda de peliculas
-searchFilms(".nav-home-item", "figure")
+searchFilms(".input-search", "figure")
 
 function searchFilms(input, selector){
     document.addEventListener("keyup", (e) =>{
