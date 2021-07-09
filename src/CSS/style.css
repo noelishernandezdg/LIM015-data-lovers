@@ -1,7 +1,7 @@
 *{
     margin: 0;
     box-sizing: border-box;
-    font-family: 'American Typewriter', serif;
+    font-family: monospace, sans-serif;
 }
 
 /* STYLE WELCOME */
@@ -133,6 +133,7 @@ figcaption{
     text-align: center;
     margin-bottom: 5px;
     font-weight: bold;
+    font-size: 13px;
 }
 
 img{
@@ -154,10 +155,11 @@ img{
 /* Para pantallas menos de 768px */
 @media (max-width: 768px) {
     body {
-        background: url(../img/fondo.png) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -moz-background-size: cover;
+        background-size: 659px 440px;
+    }
+
+    .button-home{
+        margin-top: 400px;
     }
 
     header {
@@ -193,10 +195,11 @@ img{
 /* Para pantallas de menos de 576px  */
 @media (max-width: 576px) {
         body {
-        background: url(../img/fondo.png) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -moz-background-size: cover;
+        background-size: 559px 340px;
+    }
+
+    .button-home{
+        margin-top: 300px;
     }
 
     header {
