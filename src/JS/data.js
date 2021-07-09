@@ -7,3 +7,8 @@ export const example = () => {
 export const anotherExample = () => {
   return 'OMG';
 };
+
+export const filterData = (films, director) => {
+  const filterResult = films.filter(film => film.director === director)
+  return filterResult;
+}

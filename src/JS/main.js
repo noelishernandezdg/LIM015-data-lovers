@@ -1,9 +1,9 @@
-import { example } from './data.js';
+import { filterData } from './data.js';
 // import data from './data/lol/lol.js';
 import data from '../data/ghibli/ghibli.js';
 // import data from './data/rickandmorty/rickandmorty.js';
 
-console.log(example, data);
+// console.log(example, data);
 
 document.getElementById("header").style.display = "none";
 document.getElementById("fila").style.display = "none";
@@ -65,3 +65,17 @@ function searchFilms(input, selector){
         }
     });
 }
+
+const selectFilter = document.querySelector("#selectFilter");
+
+data.films.map((item) => {
+    const createOption = document.createElement('option');
+    createOption.value = `${item.director}`;
+    createOption.innerText = `${item.director}`;
+    selectFilter.appendChild(createOption);
+    // console.log(createOption);
+    return createOption;
+})
+
+console.log(filterData(data.films, "Hayao Miyazaki"));
+
