@@ -5,7 +5,7 @@ export default {
       "id": "2baf70d1-42bb-4437-b551-e5fed5a87abe",
       "title": "Castle in the Sky",
       "description": "The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world.",
-      "director": "",
+      "director": "Hayao Miyazaki",
       "producer": "Isao Takahata",
       "poster": "https://static.wikia.nocookie.net/studio-ghibli/images/c/c1/Castle_in_the_Sky.jpg",
       "release_date": "1986",
@@ -1315,7 +1315,7 @@ export default {
           "eye_color": "Black",
           "hair_color": "Brown",
           "specie": "Human"
-        }, 
+        },
         {
           "id": "2e7bb7bf-4149-4df5-b6e4-76064021651c",
           "name": "Yūko Ogino",
@@ -1573,7 +1573,7 @@ export default {
           "eye_color": "Brown",
           "hair_color": "Beige-white",
           "specie": "Dog"
-        }, 
+        },
         {
           "id": "3148150f-6ccb-4383-8af5-0c40f03c825e",
           "name": "Lettie Hatter",
@@ -1583,7 +1583,7 @@ export default {
           "eye_color": "Blue",
           "hair_color": "Blonde",
           "specie": "Human"
-        }, 
+        },
         {
           "id": "06610030-0560-47ac-bc18-be80d85c4dad",
           "name": "Fanny Hatter/Honey",

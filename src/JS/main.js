@@ -1,13 +1,14 @@
 import { filterData } from './data.js';
-
 import data from '../data/ghibli/ghibli.js';
+
+const home = document.getElementById("btnHome");
+const selectFilter = document.querySelector("#selectFilter");
 
 // Ocultamos header y galeria
 document.getElementById("header").style.display = "none";
 document.getElementById("footer").style.display = "none";
 document.getElementById("fila").style.display = "none";
 
-const home = document.getElementById("btnHome");
 home.addEventListener("click" , homeFilms);
 
 function homeFilms() {
@@ -39,7 +40,7 @@ const posters = data.films.map((item) => {
     return createFigure;
 });
 
-posters.forEach((poster) => {
+const galleryFilms = posters.forEach((poster) => {
     document.querySelector("#fila").appendChild(poster);
 })
 
@@ -50,7 +51,7 @@ function searchFilms(input, selector){
     document.addEventListener("keyup", (e) =>{
         if (e.target.matches(input)) {
             // console.log(e.key);
-            console.log(e.target.value);
+            // console.log(e.target.value);
 
             if (e.key === "Escape") e.target.value = "";
 
@@ -63,28 +64,15 @@ function searchFilms(input, selector){
     });
 }
 
-const selectFilter = document.querySelector("#selectFilter");
+// console.log(filterData(data.films, "Hayao Miyazaki"));
 
-function deleteDuplicateFilter (array) {
-    const newData = [];
-    return array.filter(function (element) {
-        if (!(element in newData)) {
-            newData[element] = true;
-            return true;
-            console.log(newData)
-        }
-        return false;
-    });
-}
-
-data.films.map((item) => {
-    const createOption = document.createElement('option');
-    createOption.value = `${item.director}`;
-    createOption.innerText = `${item.director}`;
-    selectFilter.appendChild(createOption);
-    // console.log(createOption);
-    return createOption;
-})
-
-console.log(filterData(data.films, "Hayao Miyazaki"));
+selectFilter.addEventListener("change", (event)=>{
+    if(selectFilter.value === 'All'){
+        data.films;
+    }else{
+        data.films = filterData(selectFilter.value);
+    }
+    // console.log(data.films);
+    
+});
 
