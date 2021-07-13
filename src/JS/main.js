@@ -3,6 +3,7 @@ import data from '../data/ghibli/ghibli.js';
 
 const home = document.getElementById("btnHome");
 const selectFilter = document.querySelector("#selectFilter");
+const galleryFilms = document.getElementById("fila");
 
 // Ocultamos header y galeria
 document.getElementById("header").style.display = "none";
@@ -23,26 +24,16 @@ function homeFilms() {
 
 home.addEventListener("click" , homeFilms);
 
-// Galeria de poster de peliculas
+// Muestra todas las peliculas
+function allFilms(data){
+    galleryFilms.innerHTML = '';
+    data.map((item) => {
+        galleryFilms.innerHTML += "<figure> <img src=" + `${item.poster}` +
+                                " alt=''> <figcaption> " + `${item.title}` + "</figcaption></figure>";
+    });
+}
 
-const posters = data.films.map((item) => {
-    const createFigure = document.createElement('figure');
-
-    const createImg = document.createElement('img'); //Crear etiqueta img
-    createImg.src = `${item.poster}`; //Agregar la url del poster al src
-    createFigure.appendChild(createImg); //convertimos la etiqueca en un nodo padre
-
-    const createTitle = document.createElement('figcaption');
-    const titleFilms = document.createTextNode(`${item.title}`);
-
-    createTitle.appendChild(titleFilms);
-    createFigure.appendChild(createTitle);
-    return createFigure;
-});
-
-posters.forEach((poster) => {
-    document.querySelector("#fila").appendChild(poster);
-})
+allFilms(data.films);
 
 // Busqueda de peliculas
 searchFilms(".input-search", "figure")
@@ -64,31 +55,14 @@ function searchFilms(input, selector){
     });
 }
 
-// console.log(filterData(data.films, "Hayao Miyazaki"));
-
+// Filtrar las peliculas por director
 selectFilter.addEventListener("change", (event)=>{
 
     if(selectFilter.value === 'All'){
-        event = document.getElementById("fila").style.display="flex";
+        allFilms(data.films);
     }else {
-        document.getElementById("fila").style.display = "none";
         event = filterData(selectFilter.value);
-
-        const createFigure = document.createElement('figure');
-
-        const createImg = document.createElement('img'); //Crear etiqueta img
-        createImg.src = event.poster; //Agregar la url del poster al src
-        createFigure.appendChild(createImg); //convertimos la etiqueca en un nodo padre
-
-        const createTitle = document.createElement('figcaption');
-        const titleFilms = document.createTextNode(event.title);
-
-        createTitle.appendChild(titleFilms);
-        createFigure.appendChild(createTitle);
-
-        const filterGallery = document.getElementsByClassName('section-filter-gallery');
-        filterGallery.appendChild(createFigure);
+        allFilms(event);
     }
-    console.log(event);
+    // console.log(event);
 });
-
