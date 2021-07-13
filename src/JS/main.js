@@ -9,8 +9,6 @@ document.getElementById("header").style.display = "none";
 document.getElementById("footer").style.display = "none";
 document.getElementById("fila").style.display = "none";
 
-home.addEventListener("click" , homeFilms);
-
 function homeFilms() {
     document.getElementById("btnHome").style.display="none";
     document.getElementById("header").style.display= "flex";
@@ -22,6 +20,8 @@ function homeFilms() {
     document.body.style.backgroundSize = "cover";
     document.body.style.boxSizing = "border-box";
 }
+
+home.addEventListener("click" , homeFilms);
 
 // Galeria de poster de peliculas
 
@@ -40,7 +40,7 @@ const posters = data.films.map((item) => {
     return createFigure;
 });
 
-const galleryFilms = posters.forEach((poster) => {
+posters.forEach((poster) => {
     document.querySelector("#fila").appendChild(poster);
 })
 
@@ -67,12 +67,28 @@ function searchFilms(input, selector){
 // console.log(filterData(data.films, "Hayao Miyazaki"));
 
 selectFilter.addEventListener("change", (event)=>{
+
     if(selectFilter.value === 'All'){
-        data.films;
-    }else{
-        data.films = filterData(selectFilter.value);
+        event = document.getElementById("fila").style.display="flex";
+    }else {
+        document.getElementById("fila").style.display = "none";
+        event = filterData(selectFilter.value);
+
+        const createFigure = document.createElement('figure');
+
+        const createImg = document.createElement('img'); //Crear etiqueta img
+        createImg.src = event.poster; //Agregar la url del poster al src
+        createFigure.appendChild(createImg); //convertimos la etiqueca en un nodo padre
+
+        const createTitle = document.createElement('figcaption');
+        const titleFilms = document.createTextNode(event.title);
+
+        createTitle.appendChild(titleFilms);
+        createFigure.appendChild(createTitle);
+
+        const filterGallery = document.getElementsByClassName('section-filter-gallery');
+        filterGallery.appendChild(createFigure);
     }
-    // console.log(data.films);
-    
+    console.log(event);
 });
 
