@@ -9,6 +9,6 @@ export const filterData = (director) => {
   // const filterResult = films.filter(film => film.director === director)
   // console.log(director);
   const filterResult = data.films.filter(film => film.director.includes(director))
-  console.log(filterResult);
+  // console.log(filterResult);
   return filterResult;
 }
