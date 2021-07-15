@@ -7,7 +7,7 @@ const galleryFilms = document.getElementById("fila");
 // const showInfo = document.getElementById("showInfo");
 const showInfoPoster = document.getElementById("showInfoPoster");
 const showInfoDescription = document.getElementById("showInfoDescription");
-const figurePoster = document.querySelector("#figurePoster");
+const figurePoster = document.querySelectorAll(".img-poster");
 // const ShowInfoPeople = document.getElementById("ShowInfoPeople");
 
 /****************************************Ocultamos header y galeria***************************************/
@@ -33,8 +33,8 @@ home.addEventListener("click" , homeFilms);
 function allFilms(data){
     galleryFilms.innerHTML = '';
     data.map((item) => {
-        galleryFilms.innerHTML += "<figure id='figurePoster'> <img src=" + `${item.poster}` +
-                                " alt=''> <figcaption> " + `${item.title}` + "</figcaption></figure>";
+        galleryFilms.innerHTML += "<figure class='img-poster'> <img  src=" + `${item.poster}` +
+    " alt=''> <figcaption> " + `${item.title}` + "</figcaption></figure>";
     });
 }
 
@@ -58,10 +58,9 @@ function searchFilms(input, selector) {
         }
     });
 }
+
 /****************************************Mostar información de cada pelicula******************************************/
 function showInfoFilms(data) {
-    document.getElementById("fila").style.display = "none";
-    document.getElementById("showInfo").style.display = "flex";
     data.map((item) => {
         showInfoPoster.innerHTML = "<figure> <img src=" + `${item.poster}` + " alt=''></figure>";
         showInfoDescription.innerHTML = "<h1>" + `${item.title}` + "</h1><h3>" + `${item.release_date}` + "</h3><h2>" + `${item.description}` + "</h2><h3>" + "Director: " + `${item.director}` + "</h3><h3>" + "Producer: " + `${item.producer}` + "</h3>";
@@ -70,10 +69,10 @@ function showInfoFilms(data) {
 console.log(showInfoFilms(data.films));
 console.log(filterFilmsById(data.films));
 
-figurePoster.addEventListener("click", showInfoFilms(data.films));
-    // => {
-    // showInfoFilms(data.films);
-// });
+figurePoster.forEach(el => {
+    el.addEventListener("change", showInfoFilms(data.films));
+})
+
 
 /**************************************Filtrar las peliculas por director**************************************/
 selectFilter.addEventListener("change", (event)=>{

@@ -12,8 +12,9 @@ export const filterData = (director) => {
   // console.log(filterResult);
   return filterResult;
 }
+
 export const filterFilmsById = (id) => {
-  const filterFilmsResult = data.films.filter(film => film.id === id)
-  console.log(filterFilmsResult);
+  const filterFilmsResult = data.films.filter(film => film.id.includes(id))
+  // console.log(filterFilmsResult);
   return filterFilmsResult;
 }
