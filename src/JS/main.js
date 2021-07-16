@@ -1,4 +1,4 @@
-import { filterData, filterFilmsById } from './data.js';
+import { filterData /*filterFilmsById*/ } from './data.js';
 import data from '../data/ghibli/ghibli.js';
 
 const home = document.getElementById("btnHome");
