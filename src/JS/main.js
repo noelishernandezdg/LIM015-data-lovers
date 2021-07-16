@@ -1,27 +1,27 @@
-import { filterData /*filterFilmsById*/ } from './data.js';
+import { filterData, filterFilmsById } from './data.js';
 import data from '../data/ghibli/ghibli.js';
 
 const home = document.getElementById("btnHome");
 const selectFilter = document.querySelector("#selectFilter");
 const galleryFilms = document.getElementById("fila");
-// const showInfo = document.getElementById("showInfo");
-const showInfoPoster = document.getElementById("showInfoPoster");
+const showInfo = document.getElementById("showInfo");
+// const showInfoPoster = document.getElementById("showInfoPoster");
 // const showInfoDescription = document.getElementById("showInfoDescription");
-const figurePoster = document.querySelectorAll(".img-poster");
+const imgPoster = document.getElementById("img-poster");
 // const ShowInfoPeople = document.getElementById("ShowInfoPeople");
 
 /****************************************Ocultamos header y galeria***************************************/
 document.getElementById("header").style.display = "none";
 document.getElementById("footer").style.display = "none";
-document.getElementById("fila").style.display = "none";
-document.getElementById("showInfo").style.display = "none";
+galleryFilms.style.display = "none";
+showInfo.style.display = "none";
 
 function homeFilms() {
     document.getElementById("btnHome").style.display="none";
     document.getElementById("header").style.display= "flex";
     document.getElementById("footer").style.display="flex";
-    document.getElementById("fila").style.display = "flex";
-    document.getElementById("showInfo").style.display = "flex";
+    galleryFilms.style.display = "flex";
+    showInfo.style.display = "flex";
 
     /**********************************Agrega estilos a Inicio******************************************/
     document.body.style.backgroundImage = "url(./img/fondoGaleria.jpg)";
@@ -35,8 +35,8 @@ home.addEventListener("click" , homeFilms);
 function allFilms(data){
     galleryFilms.innerHTML = '';
     data.map((item) => {
-        galleryFilms.innerHTML += "<figure class='img-poster'> <img  src=" + `${item.poster}` +
-    " alt=''> <figcaption> " + `${item.title}` + "</figcaption></figure>";
+        galleryFilms.innerHTML += "<figure><img id='img-poster' src=" + `${item.poster}` +" alt=''>" +
+                                    "<figcaption> " + `${item.title}` + "</figcaption></figure>";
     });
 }
 
@@ -47,7 +47,6 @@ allFilms(data.films);
 searchFilms(".input-search", "figure")
 
 function searchFilms(input, selector) {
-    
     document.addEventListener("keyup", (e) =>{
         if (e.target.matches(input)) {
             if (e.key === "Escape") e.target.value = "";
@@ -65,17 +64,23 @@ function searchFilms(input, selector) {
 function showInfoFilms(data) {
     // galleryFilms.innerHTML = '';
     data.map((item) => {
-            showInfoPoster.innerHTML += "<section><figure><img src=" + `${item.poster}` + " alt=''></figure><h1>" + `${item.title}` + "</h1><h3>" + `${item.release_date}` + "</h3><h2>" + `${item.description}` + "</h2><h3>" + "Director: " + `${item.director}` + "</h3><h3>" + "Producer: " + `${item.producer}` + "</h3></section>";
-            console.log(item.poster);
-        });
-    //     showInfoPoster.innerHTML += "<figure> <img src=" + `${item.poster}` + " alt=''></figure>";
-    //     showInfoDescription.innerHTML += "<h1>" + `${item.title}` + "</h1><h3>" + `${item.release_date}` + "</h3><h2>" + `${item.description}` + "</h2><h3>" + "Director: " + `${item.director}` + "</h3><h3>" + "Producer: " + `${item.producer}` + "</h3>";
-    // });
+        showInfo.innerHTML += "<figure><img src=" + `${item.poster}` + " alt=''></figure>" +
+                                    "<h1>" + `${item.title}` + "</h1>" +
+                                    "<h3>" + `${item.release_date}` + "</h3>" +
+                                    "<h2>" + `${item.description}` + "</h2>" +
+                                    "<h3>" + "Director: " + `${item.director}` + "</h3>" +
+                                    "<h3>" + "Producer: " + `${item.producer}` + "</h3>";
+        console.log(item.poster);
+    });
 }
-// console.log(showInfoFilms(data.films));
+console.log(showInfoFilms(data.films));
 // console.log(filterFilmsById(data.films));
 
-figurePoster.addEventListener("click", showInfoFilms(data.films));
+imgPoster.addEventListener("click", (element) => {
+    galleryFilms.innerHTML = '';
+    showInfo.style.display = "flex";
+    console.log(element);
+})
 
 
 /**************************************Filtrar las peliculas por director**************************************/
