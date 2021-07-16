@@ -1,4 +1,4 @@
-import { filterData, filterFilmsById } from './data.js';
+import { filterData /*filterFilmsById*/ } from './data.js';
 import data from '../data/ghibli/ghibli.js';
 
 const home = document.getElementById("btnHome");
@@ -14,12 +14,14 @@ const figurePoster = document.querySelectorAll(".img-poster");
 document.getElementById("header").style.display = "none";
 document.getElementById("footer").style.display = "none";
 document.getElementById("fila").style.display = "none";
+document.getElementById("showInfo").style.display = "none";
 
 function homeFilms() {
     document.getElementById("btnHome").style.display="none";
     document.getElementById("header").style.display= "flex";
     document.getElementById("footer").style.display="flex";
-    document.getElementById("fila").style.display="flex";
+    document.getElementById("fila").style.display = "flex";
+    document.getElementById("showInfo").style.display = "flex";
 
     /**********************************Agrega estilos a Inicio******************************************/
     document.body.style.backgroundImage = "url(./img/fondoGaleria.jpg)";
@@ -61,17 +63,16 @@ function searchFilms(input, selector) {
 
 /****************************************Mostar información de cada pelicula******************************************/
 function showInfoFilms(data) {
+    // galleryFilms.innerHTML = '';
     data.map((item) => {
-        showInfoPoster.innerHTML = "<figure> <img src=" + `${item.poster}` + " alt=''></figure>";
-        showInfoDescription.innerHTML = "<h1>" + `${item.title}` + "</h1><h3>" + `${item.release_date}` + "</h3><h2>" + `${item.description}` + "</h2><h3>" + "Director: " + `${item.director}` + "</h3><h3>" + "Producer: " + `${item.producer}` + "</h3>";
+        showInfoPoster.innerHTML += "<figure> <img src=" + `${item.poster}` + " alt=''></figure>";
+        showInfoDescription.innerHTML += "<h1>" + `${item.title}` + "</h1><h3>" + `${item.release_date}` + "</h3><h2>" + `${item.description}` + "</h2><h3>" + "Director: " + `${item.director}` + "</h3><h3>" + "Producer: " + `${item.producer}` + "</h3>";
     });
 }
-console.log(showInfoFilms(data.films));
-console.log(filterFilmsById(data.films));
+// console.log(showInfoFilms(data.films));
+// console.log(filterFilmsById(data.films));
 
-figurePoster.forEach(el => {
-    el.addEventListener("change", showInfoFilms(data.films));
-})
+figurePoster.addEventListener("click", showInfoFilms(data.films));
 
 
 /**************************************Filtrar las peliculas por director**************************************/

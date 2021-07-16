@@ -13,8 +13,8 @@ export const filterData = (director) => {
   return filterResult;
 }
 
-export const filterFilmsById = (id) => {
-  const filterFilmsResult = data.films.filter(film => film.id.includes(id))
-  // console.log(filterFilmsResult);
-  return filterFilmsResult;
-}
+//  export const filterFilmsById = (id) => {
+//   const filterFilmsResult = data.films.filter(film => film.id.includes(id))
+//   // console.log(filterFilmsResult);
+//   return filterFilmsResult;
+// }
