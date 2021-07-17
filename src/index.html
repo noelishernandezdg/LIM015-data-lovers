@@ -35,6 +35,9 @@
             </select>
           </section>
         </section>
+        <section class="section-back">
+          <button class="button-back" id="buttonBack">&#128281</button>
+        </section>
       </nav>
     </header>
     <main>
@@ -45,10 +48,17 @@
       <section class="section-gallery fila" id="fila"></section>
       <!--Mostrando info de películas-->
       <section class="show-info" id="showInfo">
-        <section class="show-info-poster" id="showInfoPoster">
-        </section>
+        <section class="show-info-poster" id="showInfoPoster"></section>
         <section class="show-info-description" id="showInfoDescription"></section>
-        <section class="show-info-people" id="ShowInfoPeople"></section>
+      </section>
+      <section class="show-info-people" id="ShowInfoPeople">
+        <nav class="nav-info">
+          <select name="selectPeople" id="selectPeople" class="select-people">
+            <option value="people" selected>People</option>
+            <option value="locations">Locations</option>
+            <option value="vehicles">Vehicles</option>
+          </select>
+        </nav>
       </section>
     </main>
     <footer id="footer">
