@@ -1,4 +1,4 @@
-import { filterData, filterFilmsById } from './data.js';
+import { filterData, filterFilmsById, sortDataAscending, sortDataDescending } from './data.js';
 import data from '../data/ghibli/ghibli.js';
 
 const home = document.getElementById("btnHome");
@@ -10,6 +10,7 @@ const showInfoPeople = document.getElementById("showInfoPeople");
 const showCharacters = document.getElementById("showCharacters");
 
 const selectFilter = document.querySelector("#selectFilter");
+const selectOrder = document.querySelector("#selectOrder");
 const sectionSearch = document.querySelector(".section-search");
 const sectionSelects = document.querySelector(".section-selects");
 const sectionBack = document.querySelector(".section-back");
@@ -77,7 +78,7 @@ function showInfoFilms(data) {
                                     "<h2 class='h2-description'>" + `${item.description}` + "</h2>" +
                                     "<h3 class='h3-director'>" + "Director: " + `${item.director}` + "</h3>" +
                                     "<h3 class='h3-producer'>" + "Producer: " + `${item.producer}` + "</h3>";
-        
+
         selectPeople.addEventListener("change", () => {
             // console.log(element);
             if (selectPeople.value === 'people') {
@@ -104,26 +105,32 @@ function showPoster(poster) {
         galleryFilms.innerHTML = '';
 
         let element = filterFilmsById(event.target.id);
-        console.log(element);
+        // console.log(element);
         showInfoFilms(element);
-
 
         sectionSearch.style.display = "none";
         sectionSelects.style.display = "none";
         sectionBack.style.display = "flex";
         showCharacters.style.display = "flex";
-
     });
 }
 
 /**************************************Filtrar las peliculas por director**************************************/
 selectFilter.addEventListener("change", (event)=>{
-    console.log(event);
     if(selectFilter.value === 'All'){
         allFilms(data.films);
     }else {
         event = filterData(selectFilter.value);
         allFilms(event);
     }
-    // console.log(event);
 });
+
+selectOrder.addEventListener("change", (event)=>{
+    if(selectOrder.value === 'ascending'){
+        event = sortDataAscending(selectOrder.value);
+        allFilms(event);
+    }else if(selectOrder.value === 'descending'){
+        event = sortDataDescending(selectOrder.value);
+        allFilms(data.films);
+    }
+})
