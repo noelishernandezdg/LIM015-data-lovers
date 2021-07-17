@@ -1,4 +1,4 @@
-import { filterData /*filterFilmsById*/ } from './data.js';
+import { filterData, filterFilmsById } from './data.js';
 import data from '../data/ghibli/ghibli.js';
 
 const home = document.getElementById("btnHome");
@@ -42,7 +42,7 @@ function allFilms(data){
     galleryFilms.innerHTML = '';
     data.map((item) => {
         galleryFilms.innerHTML += "<figure class='figure-poster'><img src=" + `${item.poster}` +" alt='' id=" + `${item.id}` + " class='img-poster'>" +
-                                    "<figcaption id='title'> " + `${item.title}` + "</figcaption></figure>";
+                                    "<figcaption> " + `${item.title}` + "</figcaption></figure>";
     });
     const imgPoster = document.querySelector(".img-poster");
     showPoster(imgPoster);
@@ -77,44 +77,41 @@ function showInfoFilms(data) {
                                     "<h2 class='h2-description'>" + `${item.description}` + "</h2>" +
                                     "<h3 class='h3-director'>" + "Director: " + `${item.director}` + "</h3>" +
                                     "<h3 class='h3-producer'>" + "Producer: " + `${item.producer}` + "</h3>";
+        
+        selectPeople.addEventListener("change", () => {
+            // console.log(element);
+            if (selectPeople.value === 'people') {
+                // e = element.filter(character => character.people.includes(people));
+                showInfoPeople.innerHTML += "<figure><img src=" + `${item.people.img}` + " alt=''>" +
+                    "<figcaption>" + `${item.people.name}` + "</figcaption></figure>";
+            } else if (selectPeople.value === 'locations') {
+                // e = element.filter(character => character.locations.includes(locations));
+                showInfoPeople.innerHTML = '';
+                showInfoPeople.innerHTML += "<figure><img src=" + `${item.locations.img}` + " alt=''>" +
+                "<figcaption>" + `${item.locations.name}` + "</figcaption></figure>";
+            } else {
+                // e = element.filter(character => character.vehicles.includes(vehicles));
+                showInfoPeople.innerHTML = '';
+                showInfoPeople.innerHTML += "<figure><img src=" + `${item.vehicles.img}` + " alt=''>" +
+                "<figcaption>" + `${item.vehicles.name}` + "</figcaption></figure>";
+            }
+        })
     });
 }
 
-function showPoster(poster){
+function showPoster(poster) {
     poster.addEventListener("click", (event) => {
         galleryFilms.innerHTML = '';
 
         let element = filterFilmsById(event.target.id);
+        console.log(element);
         showInfoFilms(element);
+
 
         sectionSearch.style.display = "none";
         sectionSelects.style.display = "none";
         sectionBack.style.display = "flex";
         showCharacters.style.display = "flex";
-
-        selectPeople.addEventListener("change", () =>{
-            if (selectPeople.value === 'people'){
-                // e = element.filter(character => character.people.includes(people));
-                element.map((item) => {
-                    showInfoPeople.innerHTML += "<figure><img src=" + `${item.people.img}` + " alt=''>" +
-                                                "<figcaption>" + `${item.people.name}` + "</figcaption></figure>";
-                })
-            }else if (selectPeople.value === 'locations'){
-                // e = element.filter(character => character.locations.includes(locations));
-                showInfoPeople.innerHTML = '';
-                element.map((item) => {
-                    showInfoPeople.innerHTML += "<figure><img src=" + `${item.locations.img}` + " alt=''>" +
-                                                "<figcaption>" + `${item.locations.name}` + "</figcaption></figure>";
-                })
-            }else{
-                // e = element.filter(character => character.vehicles.includes(vehicles));
-                showInfoPeople.innerHTML = '';
-                element.map((item) => {
-                    showInfoPeople.innerHTML += "<figure><img src=" + `${item.vehicles.img}` + " alt=''>" +
-                                                "<figcaption>" + `${item.vehicles.name}` + "</figcaption></figure>";
-                })
-            }
-        })
 
     });
 }
