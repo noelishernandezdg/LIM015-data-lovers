@@ -65,7 +65,7 @@ header{
     margin-top: 10px;
 }
 
-.section-search, .section-selects{
+.section-search, .section-selects, .show-info-poster{
     box-sizing: content-box;
 }
 
@@ -97,6 +97,22 @@ header{
 option{
     font-size: 20px;
 }
+
+.section-back{
+    display: flex;
+    align-items: center;
+    background: #5C91CC;
+    margin-left: 900px;
+}
+
+.button-back{
+    background: #5C91CC;
+    border-style: none;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+
 /* end header*/
 
 
@@ -104,13 +120,15 @@ option{
 footer{
     background: #5C91CC;
     height: 30px;
-    width: 100%;
-    margin: 0;
     position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
 }
 
 p{
     margin: 5px 3px;
+    color: white;
 }
 /* end footer*/
 
@@ -128,7 +146,7 @@ p{
     flex-wrap: wrap;
 }
 
-figure{
+.figure-poster{
     margin: 13px 20px;
     cursor: pointer;
 }
@@ -140,7 +158,7 @@ figcaption{
     font-size: 13px;
 }
 
-img{
+.img-poster{
     width: auto;
     height: auto;
     border-radius: 10px;
@@ -156,14 +174,144 @@ img{
 /* end style search*/
 /* end gallery home */
 
+/* Style Info Films */
+.show-info{
+    display: flex;
+    margin: 25px 25px;
+}
+
+.show-info-poster{
+    width: auto;
+    height: auto;
+    margin-right: 25px;
+}
+
+.img-film{
+    width: 200px;
+    height: 350px;
+}
+
+.show-info-description{
+    background: #F4F6F7;
+    color: #4D5656;
+    width: auto;
+    height: auto;
+    padding: 2px 20px;
+}
+
+.h1-title{
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 70px;
+}
+
+.h3-release-date{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    margin-top: 3px;
+}
+
+.h2-description{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: justify;
+    margin-top: 10px;
+}
+
+.h3-director{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+    margin-top: 15px;
+}
+
+.h3-producer{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.show-info-people{
+    display: flex;
+    flex-direction: column;
+    background: #F0F3F4;
+    width: auto;
+    height: auto;
+    margin: 0 25px;
+}
+
+.select-people{
+    color: #4D5656;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 23px 30px;
+    background: #F0F3F4;
+    border-style: solid;
+    border-radius: 10px;
+    width: 250px;
+}
+/* end style info films */
+
 /* Para pantallas menos de 768px */
-@media (max-width: 768px) {
+@media (min-width: 600px) and (max-width: 768px) {
     body {
         background-size: 659px 440px;
     }
 
     .button-home{
         margin-top: 400px;
+    }
+
+    header {
+        height: 180px;
+    }
+
+    .nav-home{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .section-logo, .section-search, .section-selects{
+        width: 100%;
+        height: 100%;
+    }
+
+    .logo{
+        width: auto;
+        margin: 10px 50%;
+    }
+
+    .input-search{
+        margin: 5px 30%;
+        width: 100%;
+        font-size: 25px;
+    }
+
+    .selects{
+        margin: 5px 50%;
+        width: auto;
+        font-size: 25px;
+    }
+
+    .show-info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Para pantallas de menos de 576px  */
+@media (max-width: 599px) {
+    body {
+        background-size: 559px 340px;
+    }
+
+    .button-home{
+        margin-top: 300px;
     }
 
     header {
@@ -178,60 +326,30 @@ img{
     }
 
     .section-logo, .section-search, .section-selects{
-        box-sizing: content-box;
+        width: 100%;
+        height: 100%;
     }
 
     .logo{
-        width: 100%;
+        width: auto;
+        margin: 10px 25px;
     }
 
     .input-search{
-        margin: 8px 0;
-        width: 100%;
+        width: auto;
+        margin: 3px 50px;
+        font-size: 23px;
     }
 
     .selects{
-        margin: 10px 2px;
-        width: 100%;
-    }
-}
-
-/* Para pantallas de menos de 576px  */
-@media (max-width: 576px) {
-        body {
-        background-size: 559px 340px;
+        margin: 5px 0;
+        width: auto;
+        font-size: 20px;
     }
 
-    .button-home{
-        margin-top: 300px;
-    }
-
-    header {
-        height: 150px;
-    }
-
-    .nav-home{
+    .show-info{
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         align-items: center;
-    }
-
-    .section-logo, .section-search, .section-selects{
-        box-sizing: content-box;
-    }
-
-    .logo{
-        width: 100%;
-    }
-
-    .input-search{
-        margin: 8px 0;
-        width: 100%;
-    }
-
-    .selects{
-        margin: 10px 2px;
-        width: 100%;
     }
 }
