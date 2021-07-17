@@ -8,12 +8,16 @@ const showInfo = document.getElementById("showInfo");
 const showInfoPoster = document.getElementById("showInfoPoster");
 const showInfoDescription = document.getElementById("showInfoDescription");
 const ShowInfoPeople = document.getElementById("ShowInfoPeople");
+const sectionSearch = document.querySelector(".section-search");
+const sectionSelects = document.querySelector(".section-selects");
+const sectionBack = document.querySelector(".section-back");
 
 /****************************************Ocultamos header y galeria***************************************/
 document.getElementById("header").style.display = "none";
 document.getElementById("footer").style.display = "none";
 galleryFilms.style.display = "none";
 showInfo.style.display = "none";
+ShowInfoPeople.style.display = "none";
 
 function homeFilms() {
     document.getElementById("btnHome").style.display="none";
@@ -34,7 +38,7 @@ home.addEventListener("click" , homeFilms);
 function allFilms(data){
     galleryFilms.innerHTML = '';
     data.map((item) => {
-        galleryFilms.innerHTML += "<figure><img src=" + `${item.poster}` +" alt='' id=" + `${item.id}` + " class='img-poster'>" +
+        galleryFilms.innerHTML += "<figure class='figure-poster'><img src=" + `${item.poster}` +" alt='' id=" + `${item.id}` + " class='img-poster'>" +
                                     "<figcaption id='title'> " + `${item.title}` + "</figcaption></figure>";
     });
     const imgPoster = document.querySelector(".img-poster");
@@ -64,13 +68,12 @@ function searchFilms(input, selector) {
 function showInfoFilms(data) {
     // showInfo.innerHTML = '';
     data.map((item) => {
-        showInfoPoster.innerHTML = "<figure><img src=" + `${item.poster}` + " alt=''></figure>";
-        showInfoDescription.innerHTML = "<h1>" + `${item.title}` + "</h1>" +
-                                    "<h3>" + `${item.release_date}` + "</h3>" +
-                                    "<h2>" + `${item.description}` + "</h2>" +
-                                    "<h3>" + "Director: " + `${item.director}` + "</h3>" +
-                                    "<h3>" + "Producer: " + `${item.producer}` + "</h3>";
-        ShowInfoPeople.innerHTML = "";
+        showInfoPoster.innerHTML = "<figure><img src=" + `${item.poster}` + " alt='' class='img-film'></figure>";
+        showInfoDescription.innerHTML = "<h1 class='h1-title'>" + `${item.title}` + "</h1>" +
+                                    "<h3 class='h3-release-date'>" + `${item.release_date}` + "</h3>" +
+                                    "<h2 class='h2-description'>" + `${item.description}` + "</h2>" +
+                                    "<h3 class='h3-director'>" + "Director: " + `${item.director}` + "</h3>" +
+                                    "<h3 class='h3-producer'>" + "Producer: " + `${item.producer}` + "</h3>";
     });
 }
 
@@ -80,6 +83,10 @@ function showPoster(poster){
         showInfo.style.display = "flex";
         let element = filterFilmsById(event.target.id);
         showInfoFilms(element);
+        sectionSearch.style.display = "none";
+        sectionSelects.style.display = "none";
+        sectionBack.style.display = "flex";
+        ShowInfoPeople.style.display = "flex";
     });
 }
 
