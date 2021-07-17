@@ -233,7 +233,7 @@ figcaption{
     line-height: 26px;
 }
 
-.show-info-people{
+.show-characters{
     display: flex;
     flex-direction: column;
     background: #F0F3F4;
