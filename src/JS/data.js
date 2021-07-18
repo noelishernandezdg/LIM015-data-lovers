@@ -17,12 +17,12 @@ export const filterFilmsById = (id) => {
   return filterFilmsResult;
 }
 
-export const sortDataAscending = (release_date) => {
+export const sortDataAscending = () => {
   const sortResult = data.films.sort((a,b) => (a.release_date > b.release_date ? 1 : -1));
   return sortResult;
 }
 
-export const sortDataDescending = (release_date) => {
+export const sortDataDescending = () => {
   const sortResult = data.films.sort((a,b) => (b.release_date > a.release_date ? 1 : -1));
   return sortResult;
 }
