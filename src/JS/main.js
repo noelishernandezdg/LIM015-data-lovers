@@ -29,6 +29,7 @@ function homeFilms() {
     document.getElementById("footer").style.display="flex";
     galleryFilms.style.display = "flex";
     showInfo.style.display = "flex";
+    sectionBack.style.display = "none";
 
     /**********************************Agrega estilos a Inicio******************************************/
     document.body.style.backgroundImage = "url(./img/fondoGaleria.jpg)";
@@ -69,7 +70,7 @@ function searchFilms(input, selector) {
     });
 }
 
-/****************************************Mostar información de cada pelicula******************************************/
+/**************************************Mostar información de cada pelicula****************************************/
 function showInfoFilms(data) {
     // showInfo.innerHTML = '';
     data.forEach((item) => {
@@ -95,7 +96,6 @@ function showInfoFilms(data) {
                                                 "<img class='img-poster' src=" + `${locations.img}` + " alt=''>" +
                                                 "<figcaption>" + `${locations.name}` + "</figcaption></figure>";
                 })
-                console.log(showInfoPeople);
             } else {
                 showInfoPeople.innerHTML = '';
                 item.vehicles.forEach(vehicles => {
@@ -112,36 +112,39 @@ function showPoster(poster) {
     poster.addEventListener("click", (event) => {
         galleryFilms.innerHTML = '';
 
-        let element = filterFilmsById(event.target.id);
-        console.log(element);
+        let element = filterFilmsById(data.films, event.target.id);
+        // console.log(element);
         showInfoFilms(element);
 
         sectionSearch.style.display = "none";
         sectionSelects.style.display = "none";
         sectionBack.style.display = "flex";
+        showInfo.style.display = "flex";
         showCharacters.style.display = "flex";
     });
 }
 
-/**************************************Filtrar las peliculas por director**************************************/
+/*****************************************Filtrar las peliculas por director***************************************/
 selectFilter.addEventListener("change", (event)=>{
     if(selectFilter.value === 'All'){
         allFilms(data.films);
     }else {
-        event = filterData(selectFilter.value);
+        event = filterData(data.films,selectFilter.value);
         allFilms(event);
     }
+    return event;
 });
 
 /**************************************Ordenar las peliculas por fecha asc/des**************************************/
 selectOrder.addEventListener("change", (event)=>{
     if(selectOrder.value === 'ascending'){
-        event = sortDataAscending(selectOrder.value);
+        event = sortDataAscending(data.films, selectOrder.value);
         allFilms(event);
     }else if(selectOrder.value === 'descending'){
-        event = sortDataDescending(selectOrder.value);
-        allFilms(data.films);
+        event = sortDataDescending(data.films, selectOrder.value);
+        allFilms(event);
     }
+    return event;
 });
 
 /**************************************Funcionalidad al botón de regresar**************************************/

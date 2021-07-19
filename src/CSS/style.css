@@ -61,6 +61,7 @@ header{
 
 .logo{
     margin-top: 10px;
+    margin-left: 15px;
 }
 
 .input-search{
@@ -259,10 +260,14 @@ figcaption{
     .select-filter{
         margin-top: 0;
     }
+
+    .figure-poster{
+        margin: 25px 20px;
+    }
 }
 
 /* Para pantallas menos de 1040px */
-@media (max-width: 1040px) {
+@media (max-width: 1020px) {
     header {
         height: 180px;
     }
@@ -284,6 +289,10 @@ figcaption{
     .input-search{
         margin: 10px 0;
         flex-basis: auto;
+    }
+
+    .figure-poster{
+        margin: 18px 20px;
     }
 }
 
