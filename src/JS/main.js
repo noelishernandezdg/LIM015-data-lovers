@@ -47,8 +47,6 @@ function allFilms(data){
                                 "<img class='img-poster' src=" + `${item.poster}` + " alt='' id=" + `${item.id}` + ">" +
                                 "<figcaption>" + `${item.title}` + "</figcaption></figure>";
     });
-    const imgPoster = document.querySelector(".img-poster");
-    showPoster(imgPoster);
 }
 
 allFilms(data.films);
@@ -108,8 +106,10 @@ function showInfoFilms(data) {
     });
 }
 
-function showPoster(poster) {
-    poster.addEventListener("click", (event) => {
+const imgPoster = document.querySelectorAll(".img-poster");
+
+imgPoster.forEach(img => {
+    img.addEventListener("click", (event) => {
         galleryFilms.innerHTML = '';
 
         let element = filterFilmsById(data.films, event.target.id);
@@ -122,7 +122,7 @@ function showPoster(poster) {
         showInfo.style.display = "flex";
         showCharacters.style.display = "flex";
     });
-}
+})
 
 /*****************************************Filtrar las peliculas por director***************************************/
 selectFilter.addEventListener("change", (event)=>{
