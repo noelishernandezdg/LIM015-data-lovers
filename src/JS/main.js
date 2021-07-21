@@ -152,6 +152,7 @@ function showPoster(){
 
             sectionSearch.style.display = "none";
             sectionSelects.style.display = "none";
+            buttonTop.style.display = "none";
             sectionBack.style.display = "flex";
             showInfo.style.display = "flex";
             showCharacters.style.display = "flex";
@@ -167,15 +168,17 @@ function topFive(){
     buttonTop.addEventListener("click", (e) => {
         e = sortTop(data.films);
         allFilms(e);
-    }
-    )
+        showPoster();
+    })
 }
+
 topFive();
 
 /**************************************Funcionalidad al botón de regresar**************************************/
 function buttonBack(){
     sectionSearch.style.display = "flex";
     sectionSelects.style.display = "flex";
+    buttonTop.style.display = "flex"
     sectionBack.style.display = "none";
     // showCharacters.innerHTML = '';
     // showInfo.innerHTML = '';
@@ -184,6 +187,7 @@ function buttonBack(){
 
     allFilms(data.films);
     searchFilms(".input-search", "figure");
+    topFive()
     showPoster();
 }
 

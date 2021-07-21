@@ -28,5 +28,3 @@ export const sortTop = (data) => {
   // console.log(data, topResult);
   return topResult;
 }
-
-
