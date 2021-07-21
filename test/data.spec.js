@@ -125,13 +125,13 @@ describe('Sort Top Five', () => {
     const data = [{"title": "Castle in the Sky",
                   "director": "Hayao Miyazaki",
                   "rt_score": "95"},
-                {"title": "My Neighbor Totoro",
+                  {"title": "My Neighbor Totoro",
                   "director": "Hayao Miyazaki",
                   "rt_score": "93"},
-                {"title": "Kiki's Delivery Service",
+                  {"title": "Kiki's Delivery Service",
                   "director": "Hayao Miyazaki",
                   "rt_score": "96"},
-                {"title": "Only Yesterday",
+                  {"title": "Only Yesterday",
                   "director": "Isao Takahata",
                   "rt_score": "100"}];
 
