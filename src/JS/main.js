@@ -68,62 +68,6 @@ function searchFilms(input, selector) {
     });
 }
 
-/**************************************Mostar información de cada pelicula****************************************/
-function showInfoFilms(data) {
-    // showInfo.innerHTML = '';
-    data.forEach((item) => {
-        showInfoPoster.innerHTML += "<figure><img src=" + `${item.poster}` + " alt='' class='img-film'></figure>";
-        showInfoDescription.innerHTML += "<h1 class='h1-title'>" + `${item.title}` + "</h1>" +
-                                    "<h3 class='h3-release-date'>" + `${item.release_date}` + "</h3>" +
-                                    "<h2 class='h2-description'>" + `${item.description}` + "</h2>" +
-                                    "<h3 class='h3-director'>" + "Director: " + `${item.director}` + "</h3>" +
-                                    "<h3 class='h3-producer'>" + "Producer: " + `${item.producer}` + "</h3>";
-
-        selectPeople.addEventListener("change", () => {
-            if (selectPeople.value === 'people') {
-                showInfoPeople.innerHTML = '';
-                item.people.forEach(person => {
-                    showInfoPeople.innerHTML += "<figure class='figure-poster'>" +
-                                                "<img class='img-poster' src=" + `${person.img}` + " alt=''>" +
-                                                "<figcaption>" + `${person.name}` + "</figcaption></figure>";
-                })
-            } else if (selectPeople.value === 'locations') {
-                showInfoPeople.innerHTML = '';
-                item.locations.forEach(locations => {
-                    showInfoPeople.innerHTML += "<figure class='figure-poster'>" +
-                                                "<img class='img-poster' src=" + `${locations.img}` + " alt=''>" +
-                                                "<figcaption>" + `${locations.name}` + "</figcaption></figure>";
-                })
-            } else {
-                showInfoPeople.innerHTML = '';
-                item.vehicles.forEach(vehicles => {
-                showInfoPeople.innerHTML += "<figure class='figure-poster'>" +
-                                            "<img class='img-poster' src=" + `${vehicles.img}` + " alt=''>" +
-                                            "<figcaption>" + `${vehicles.name}` + "</figcaption></figure>";
-                })
-            }
-        })
-    });
-}
-
-const imgPoster = document.querySelectorAll(".img-poster");
-
-imgPoster.forEach(img => {
-    img.addEventListener("click", (event) => {
-        galleryFilms.innerHTML = '';
-
-        let element = filterFilmsById(data.films, event.target.id);
-        // console.log(element);
-        showInfoFilms(element);
-
-        sectionSearch.style.display = "none";
-        sectionSelects.style.display = "none";
-        sectionBack.style.display = "flex";
-        showInfo.style.display = "flex";
-        showCharacters.style.display = "flex";
-    });
-})
-
 /*****************************************Filtrar las peliculas por director***************************************/
 selectFilter.addEventListener("change", (event)=>{
     if(selectFilter.value === 'All'){
@@ -147,15 +91,83 @@ selectOrder.addEventListener("change", (event)=>{
     return event;
 });
 
+/**************************************Mostar información de cada pelicula****************************************/
+function showInfoFilms(data) {
+    // showInfo.innerHTML = '';
+    // showCharacters.innerHTML = '';
+    data.forEach((item) => {
+        // showInfo.innerHTML = '';
+        // showCharacters.innerHTML = '';
+        showInfoPoster.innerHTML += "<figure><img src=" + `${item.poster}` + " alt='' class='img-film'></figure>";
+        showInfoDescription.innerHTML += "<h1 class='h1-title'>" + `${item.title}` + "</h1>" +
+            "<h3 class='h3-release-date'>" + `${item.release_date}` + "</h3>" +
+            "<h2 class='h2-description'>" + `${item.description}` + "</h2>" +
+            "<h3 class='h3-director'>" + "Director: " + `${item.director}` + "</h3>" +
+            "<h3 class='h3-producer'>" + "Producer: " + `${item.producer}` + "</h3>";
+
+        selectPeople.addEventListener("change", () => {
+            if (selectPeople.value === 'people') {
+                showInfoPeople.innerHTML = '';
+                item.people.forEach(person => {
+                    showInfoPeople.innerHTML += "<figure class='figure-poster'>" +
+                        "<img class='img-poster' src=" + `${person.img}` + " alt=''>" +
+                        "<figcaption>" + `${person.name}` + "</figcaption></figure>";
+                })
+            } else if (selectPeople.value === 'locations') {
+                showInfoPeople.innerHTML = '';
+                item.locations.forEach(locations => {
+                    showInfoPeople.innerHTML += "<figure class='figure-poster'>" +
+                        "<img class='img-poster' src=" + `${locations.img}` + " alt=''>" +
+                        "<figcaption>" + `${locations.name}` + "</figcaption></figure>";
+                })
+            } else {
+                showInfoPeople.innerHTML = '';
+                item.vehicles.forEach(vehicles => {
+                    showInfoPeople.innerHTML += "<figure class='figure-poster'>" +
+                        "<img class='img-poster' src=" + `${vehicles.img}` + " alt=''>" +
+                        "<figcaption>" + `${vehicles.name}` + "</figcaption></figure>";
+                })
+            }
+        })
+    });
+}
+
+function showPoster(){
+    const imgPoster = document.querySelectorAll(".img-poster");
+    // showCharacters.innerHTML = '';
+    // showInfo.innerHTML = '';
+    imgPoster.forEach(img => {
+        img.addEventListener("click", (event) => {
+            galleryFilms.innerHTML = '';
+
+            let element = filterFilmsById(data.films, event.target.id);
+            // console.log(element);
+            showInfoFilms(element);
+
+            sectionSearch.style.display = "none";
+            sectionSelects.style.display = "none";
+            sectionBack.style.display = "flex";
+            showInfo.style.display = "flex";
+            showCharacters.style.display = "flex";
+        });
+    })
+}
+
+showPoster();
+
 /**************************************Funcionalidad al botón de regresar**************************************/
 function buttonBack(){
     sectionSearch.style.display = "flex";
     sectionSelects.style.display = "flex";
     sectionBack.style.display = "none";
-    showCharacters.innerHTML = '';
-    showInfo.innerHTML = '';
+    // showCharacters.innerHTML = '';
+    // showInfo.innerHTML = '';
+    // showCharacters.style.display = "none";
+    // showInfo.style.display = "none";
 
     allFilms(data.films);
+    searchFilms(".input-search", "figure");
+    showPoster();
 }
 
 sectionBack.addEventListener("click", buttonBack);
