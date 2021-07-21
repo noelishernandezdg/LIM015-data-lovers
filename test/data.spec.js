@@ -1,4 +1,4 @@
-import { filterData, filterFilmsById, sortDataAscending, sortDataDescending } from '../src/JS/data.js';
+import { filterData, filterFilmsById, sortDataAscending, sortDataDescending, sortTop} from '../src/JS/data.js';
 
 describe('Filter Data', () => {
   it('is a function', () => {
@@ -113,5 +113,34 @@ describe('Sort Data Descending', () => {
                           "director": "Hayao Miyazaki",
                           "release_date": "1989"}];
     expect(sortDataDescending(data)).toEqual(filterResult);
+  });
+});
+
+describe('Sort Top Five', () => {
+  it('is a function', () => {
+    expect(typeof sortTop).toBe('function');
+  });
+
+  it('returns the result sort top five films', () => {
+    const data = [{"title": "Castle in the Sky",
+                  "director": "Hayao Miyazaki",
+                  "rt_score": "95"},
+                {"title": "My Neighbor Totoro",
+                  "director": "Hayao Miyazaki",
+                  "rt_score": "93"},
+                {"title": "Kiki's Delivery Service",
+                  "director": "Hayao Miyazaki",
+                  "rt_score": "96"},
+                {"title": "Only Yesterday",
+                  "director": "Isao Takahata",
+                  "rt_score": "100"}];
+
+    const sortResult = [{"title": "Only Yesterday",
+                        "director": "Isao Takahata",
+                        "rt_score": "100"},
+                        {"title": "Kiki's Delivery Service",
+                        "director": "Hayao Miyazaki",
+                        "rt_score": "96"}];
+    expect(sortTop(data)).toEqual(sortResult);
   });
 });

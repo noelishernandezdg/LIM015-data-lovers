@@ -11,13 +11,22 @@ export const filterFilmsById = (data, id) => {
 }
 
 export const sortDataAscending = (data) => {
-  const sortResult = data.sort((a,b) => (a.release_date > b.release_date ? 1 : -1));
+  const sortResult = data.sort((a,b) => a.release_date - b.release_date);
   // console.log(data, sortResult);
   return sortResult;
 }
 
 export const sortDataDescending = (data) => {
-  const sortResult = data.sort((a,b) => (b.release_date > a.release_date ? 1 : -1));
+  const sortResult = data.sort((a,b) => b.release_date - a.release_date);
   // console.log(data, sortResult);
   return sortResult;
 }
+
+export const sortTop = (data) => {
+  const topFive = data.filter(film => film.rt_score >= 96);
+  const topResult = topFive.sort((a, b) => b.rt_score - a.rt_score);
+  // console.log(data, topResult);
+  return topResult;
+}
+
+

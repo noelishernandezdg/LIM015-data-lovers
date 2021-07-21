@@ -1,4 +1,4 @@
-import { filterData, filterFilmsById, sortDataAscending, sortDataDescending } from './data.js';
+import { filterData, filterFilmsById, sortDataAscending, sortDataDescending, sortTop } from './data.js';
 import data from '../data/ghibli/ghibli.js';
 
 const home = document.getElementById("btnHome");
@@ -8,6 +8,7 @@ const showInfoPoster = document.getElementById("showInfoPoster");
 const showInfoDescription = document.getElementById("showInfoDescription");
 const showInfoPeople = document.getElementById("showInfoPeople");
 const showCharacters = document.getElementById("showCharacters");
+const buttonTop = document.getElementById("buttonTop");
 
 const selectFilter = document.querySelector("#selectFilter");
 const selectOrder = document.querySelector("#selectOrder");
@@ -16,15 +17,18 @@ const sectionSelects = document.querySelector(".section-selects");
 const sectionBack = document.querySelector(".section-back");
 const selectPeople = document.querySelector("#selectPeople");
 
+
 /****************************************Ocultamos header y galeria***************************************/
 document.getElementById("header").style.display = "none";
 document.getElementById("footer").style.display = "none";
+buttonTop.style.display = "none";
 galleryFilms.style.display = "none";
 showInfo.style.display = "none";
 showCharacters.style.display = "none";
 
 function homeFilms() {
-    home.style.display="none";
+    home.style.display = "none";
+    buttonTop.style.display = "flex";
     document.getElementById("header").style.display= "flex";
     document.getElementById("footer").style.display="flex";
     galleryFilms.style.display = "flex";
@@ -156,6 +160,17 @@ function showPoster(){
 }
 
 showPoster();
+
+/****************************************************Top 5****************************************************/
+
+function topFive(){
+    buttonTop.addEventListener("click", (e) => {
+        e = sortTop(data.films);
+        allFilms(e);
+    }
+    )
+}
+topFive();
 
 /**************************************Funcionalidad al botón de regresar**************************************/
 function buttonBack(){

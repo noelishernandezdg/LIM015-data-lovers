@@ -121,6 +121,18 @@ p{
 /* end footer*/
 
 /* Gallery Home */
+
+.button-top {
+    background: #5C91CC;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 10px;
+    font-size: 25px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
 .fila::after {
     content: "";
     clear: both;
