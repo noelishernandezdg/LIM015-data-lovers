@@ -93,8 +93,9 @@ selectOrder.addEventListener("change", (event)=>{
 
 /**************************************Mostar información de cada pelicula****************************************/
 function showInfoFilms(data) {
-    // showInfo.innerHTML = '';
-    // showCharacters.innerHTML = '';
+    showInfoPoster.innerHTML = '';
+    showInfoDescription.innerHTML = '';
+
     data.forEach((item) => {
         // showInfo.innerHTML = '';
         // showCharacters.innerHTML = '';
@@ -105,6 +106,7 @@ function showInfoFilms(data) {
             "<h3 class='h3-director'>" + "Director: " + `${item.director}` + "</h3>" +
             "<h3 class='h3-producer'>" + "Producer: " + `${item.producer}` + "</h3>";
 
+        showInfoPeople.innerHTML = '';
         selectPeople.addEventListener("change", () => {
             if (selectPeople.value === 'people') {
                 showInfoPeople.innerHTML = '';
@@ -162,8 +164,8 @@ function buttonBack(){
     sectionBack.style.display = "none";
     // showCharacters.innerHTML = '';
     // showInfo.innerHTML = '';
-    // showCharacters.style.display = "none";
-    // showInfo.style.display = "none";
+    showCharacters.style.display = "none";
+    showInfo.style.display = "none";
 
     allFilms(data.films);
     searchFilms(".input-search", "figure");
