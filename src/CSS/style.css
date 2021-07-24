@@ -256,8 +256,50 @@ figcaption{
 .show-info-people{
     margin-bottom: 50px;
 }
-
 /* end style info films */
+
+/* Style Modal Info Characters */
+.modal-container{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal-characters{
+    background-color: white;
+    width: 600px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.button-modal{
+    background: #5C91CC;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.show{
+    pointer-events: auto;
+    opacity: 1;
+}
+/* end modal */
 
 /* Para pantallas menos de 1200px */
 @media (max-width: 1200px) {

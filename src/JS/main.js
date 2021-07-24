@@ -9,6 +9,9 @@ const showInfoDescription = document.getElementById("showInfoDescription");
 const showInfoPeople = document.getElementById("showInfoPeople");
 const showCharacters = document.getElementById("showCharacters");
 const buttonTop = document.getElementById("buttonTop");
+const modal = document.getElementById("modalCharacters");
+const buttonModal = document.getElementById("buttonModal");
+const modalContainer = document.getElementById("modalContainer")
 
 const selectFilter = document.querySelector("#selectFilter");
 const selectOrder = document.querySelector("#selectOrder");
@@ -25,6 +28,7 @@ buttonTop.style.display = "none";
 galleryFilms.style.display = "none";
 showInfo.style.display = "none";
 showCharacters.style.display = "none";
+// modalContainer.style.display = "none";
 
 function homeFilms() {
     home.style.display = "none";
@@ -101,14 +105,12 @@ function showInfoFilms(data) {
     showInfoDescription.innerHTML = '';
 
     data.forEach((item) => {
-        // showInfo.innerHTML = '';
-        // showCharacters.innerHTML = '';
         showInfoPoster.innerHTML += "<figure><img src=" + `${item.poster}` + " alt='' class='img-film'></figure>";
         showInfoDescription.innerHTML += "<h1 class='h1-title'>" + `${item.title}` + "</h1>" +
-            "<h3 class='h3-release-date'>" + `${item.release_date}` + "</h3>" +
-            "<h2 class='h2-description'>" + `${item.description}` + "</h2>" +
-            "<h3 class='h3-director'>" + "Director: " + `${item.director}` + "</h3>" +
-            "<h3 class='h3-producer'>" + "Producer: " + `${item.producer}` + "</h3>";
+                                        "<h3 class='h3-release-date'>" + `${item.release_date}` + "</h3>" +
+                                        "<h2 class='h2-description'>" + `${item.description}` + "</h2>" +
+                                        "<h3 class='h3-director'>" + "Director: " + `${item.director}` + "</h3>" +
+                                        "<h3 class='h3-producer'>" + "Producer: " + `${item.producer}` + "</h3>";
 
         showInfoPeople.innerHTML = '';
         selectPeople.addEventListener("change", () => {
@@ -116,22 +118,22 @@ function showInfoFilms(data) {
                 showInfoPeople.innerHTML = '';
                 item.people.forEach(person => {
                     showInfoPeople.innerHTML += "<figure class='figure-poster'>" +
-                        "<img class='img-poster' src=" + `${person.img}` + " alt=''>" +
-                        "<figcaption>" + `${person.name}` + "</figcaption></figure>";
+                                                "<img id="+ `${person.id}` +" class='img-poster img-character' src=" + `${person.img}` + " alt=''>" +
+                                                "<figcaption>" + `${person.name}` + "</figcaption></figure>";
                 })
             } else if (selectPeople.value === 'locations') {
                 showInfoPeople.innerHTML = '';
                 item.locations.forEach(locations => {
                     showInfoPeople.innerHTML += "<figure class='figure-poster'>" +
-                        "<img class='img-poster' src=" + `${locations.img}` + " alt=''>" +
-                        "<figcaption>" + `${locations.name}` + "</figcaption></figure>";
+                                                "<img id="+ `${locations.id}` +" class='img-poster img-character' src=" + `${locations.img}` + " alt=''>" +
+                                                "<figcaption>" + `${locations.name}` + "</figcaption></figure>";
                 })
             } else {
                 showInfoPeople.innerHTML = '';
                 item.vehicles.forEach(vehicles => {
                     showInfoPeople.innerHTML += "<figure class='figure-poster'>" +
-                        "<img class='img-poster' src=" + `${vehicles.img}` + " alt=''>" +
-                        "<figcaption>" + `${vehicles.name}` + "</figcaption></figure>";
+                                                "<img id="+ `${vehicles.id}` +" class='img-poster img-character' src=" + `${vehicles.img}` + " alt=''>" +
+                                                "<figcaption>" + `${vehicles.name}` + "</figcaption></figure>";
                 })
             }
         })
@@ -140,8 +142,6 @@ function showInfoFilms(data) {
 
 function showPoster(){
     const imgPoster = document.querySelectorAll(".img-poster");
-    // showCharacters.innerHTML = '';
-    // showInfo.innerHTML = '';
     imgPoster.forEach(img => {
         img.addEventListener("click", (event) => {
             galleryFilms.innerHTML = '';
@@ -163,7 +163,6 @@ function showPoster(){
 showPoster();
 
 /****************************************************Top 5****************************************************/
-
 function topFive(){
     buttonTop.addEventListener("click", (e) => {
         e = sortTop(data.films);
@@ -174,14 +173,53 @@ function topFive(){
 
 topFive();
 
+/*************************************************Modal Characters*************************************************/
+function modalInfoCharacters(data) {
+    // modal.innerHTML = '';
+
+    data.forEach(item => {
+        item.people.forEach(people => {
+            modal.innerHTML += "<h2>" + `${people.name}` + "</h2>" +
+                                "<h3> Gender: " + `${people.gender}` + "</h3>" +
+                                "<h3> Age: " + `${people.age}` + "</h3>" +
+                                "<h3> Eye color: " + `${people.eye_color}` + "</h3>" +
+                                "<h3> Hair color: " + `${people.hair_color}` + "</h3>" +
+                                "<h3> Specie: " + `${people.specie}` + "</h3>";
+        })
+    })
+}
+
+// console.log(filterCharacterById(data.films, "fe93adf2-2f3a-4ec4-9f68-5422f1b87c01"));
+
+function prueba(){
+
+    const imgPeople = document.querySelectorAll(".img-character");
+    imgPeople.forEach(img => {
+        img.addEventListener("click", (event) => {
+            console.log(imgPeople);
+            let e = filterFilmsById(data.films, event.target.id);
+            console.log(e);
+            modalInfoCharacters(data.films);
+
+            modalContainer.classList.add("show");
+        });
+    })
+}
+
+prueba();
+
+
+buttonModal.addEventListener("click", () => {
+    modalContainer.classList.remove("show");
+})
+
 /**************************************Funcionalidad al botón de regresar**************************************/
 function buttonBack(){
     sectionSearch.style.display = "flex";
     sectionSelects.style.display = "flex";
     buttonTop.style.display = "flex"
     sectionBack.style.display = "none";
-    // showCharacters.innerHTML = '';
-    // showInfo.innerHTML = '';
+
     showCharacters.style.display = "none";
     showInfo.style.display = "none";
 
