@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Studio Ghibli</title>
+    <link rel="icon" href="./img/iconototoro.ico">
+    <link rel="stylesheet" href="./CSS/style.css" />
+  </head>
+  <body>
+    <header id="header">
+      <nav class="nav-home">
+        <section class="section-logo">
+          <img src="./img/logo.png" alt="log" class="logo">
+        </section>
+        <section class="section-search">
+          <input type="search" name="" id="" class="input-search" placeholder="&#128269 Search">
+        </section>
+        <section class="section-selects">
+          <section class="section-order">
+            <select name="selectOrder" id="selectOrder" class="select-order">
+              <option value="ascending" disable selected>Order By</option>
+              <option value="ascending">Ascending date</option>
+              <option value="descending">Descending date</option>
+            </select>
+          </section>
+          <section class="section-filter">
+            <select name="selectFilter" id="selectFilter" class="select-filter">
+              <option value="All" disable selected>Filter By Director</option>
+              <option value="All">All</option>
+              <option value="Hayao Miyazaki">Hayao Miyazaki</option>
+              <option value="Isao Takahata">Isao Takahata</option>
+              <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
+              <option value="Hiroyuki Morita">Hiroyuki Morita</option>
+              <option value="Gorō Miyazaki">Gorō Miyazaki</option>
+              <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
+            </select>
+          </section>
+        </section>
+        <section class="section-back">
+          <button class="button-back" id="buttonBack">&#128281</button>
+        </section>
+      </nav>
+    </header>
+    <main>
+      <section class="section-button">
+        <button id="btnHome" class="button-home">HOME</button>
+      </section>
+      <section>
+        <button class="button-top"  id="buttonTop">Top 5</button>
+      </section>
+      <!-- Galeria de todas las peliculas -->
+      <section class="section-gallery fila" id="fila"></section>
+      <!--Mostrando info de películas-->
+      <section class="show-info" id="showInfo">
+        <section class="show-info-poster" id="showInfoPoster"></section>
+        <section class="show-info-description" id="showInfoDescription"></section>
+      </section>
+      <section class="show-characters" id="showCharacters">
+        <select name="selectPeople" id="selectPeople" class="select-people">
+          <option value="people" selected>People</option>
+          <option value="locations">Locations</option>
+          <option value="vehicles">Vehicles</option>
+        </select>
+        <section class="show-info-people fila" id="showInfoPeople"></section>
+      </section>
+    </main>
+    <footer id="footer">
+      <!-- <p>&copy; 2021 - Developed by Grecia & Noelis</p> -->
+    </footer>
+    <script src="./JS/main.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/50e6c776f6.js" crossorigin="anonymous"></script>
+  </body>
+</html>
+
