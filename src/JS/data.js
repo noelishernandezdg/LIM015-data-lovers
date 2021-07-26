@@ -28,9 +28,3 @@ export const sortTop = (data) => {
   // console.log(data, topResult);
   return topResult;
 }
-
-export const filterCharacterById = (data, id) => {
-  const filterCharacterResult = data.character.filter(film => film.id.includes(id));
-  // console.log(data, id, filterCharacterResult);
-  return filterCharacterResult;
-}
