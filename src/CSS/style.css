@@ -347,8 +347,50 @@ figcaption{
 }
 /* end modal */
 
+
+/* Para pantallas */
+@media all and (min-width: 421px) and (max-width: 768px){
+    header{
+        background: #5C91CC;
+        height: 95px;
+        position: fixed;
+        width: 50%;
+        top: 0;
+        left: 0;
+        }
+
+    .nav-home, .section-selects{
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+        }
+
+}
+
+@media all and (max-width: 420px){
+    header{
+        background: #5C91CC;
+        height: 95px;
+        position: fixed;
+        width: 50%;
+        top: 0;
+        left: 0;
+        }
+
+    .nav-home, .section-selects{
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        }
+}
+
+
+
+
+
 /* Para pantallas menos de 1200px */
-@media (max-width: 1200px) {
+
+/* @media (max-width: 1200px) {
     header {
         height: 120px;
     }
@@ -364,13 +406,14 @@ figcaption{
     .figure-poster{
         margin: 25px 20px;
     }
-}
+} */
 
 /* Para pantallas menos de 1040px */
-@media (max-width: 1020px) {
+/* @media (max-width: 1020px) {
     header {
         height: 180px;
     }
+
 
     .nav-home{
         flex-direction: column;
@@ -394,10 +437,10 @@ figcaption{
     .figure-poster{
         margin: 18px 20px;
     }
-}
+} */
 
 /* Para pantallas de menos de 830px  */
-@media (max-width: 830px) {
+/* @media (max-width: 830px) {
     body {
         background-size: 906px 625px;
     }
@@ -407,25 +450,25 @@ figcaption{
         flex-direction: column;
         align-items: center;
     }
-}
+} */
 
 /* Para pantallas de menos de 576px  */
-@media (max-width: 560px) {
+/* @media (max-width: 560px) {
     body {
         background-size: 764px 510px;
     }
-}
+} */
 
 /* Para pantallas de menos de 460px  */
-@media (max-width: 460px) {
+/* @media (max-width: 460px) {
     body {
         background-size: 590px 411px;
     }
-}
+} */
 
 /* Para pantallas de menos de 320px  */
-@media (max-width: 320px) {
+/* @media (max-width: 320px) {
     body {
         background-size: 310px 226px;
     }
-}
+}  */
