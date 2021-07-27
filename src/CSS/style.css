@@ -76,6 +76,7 @@ header{
     background: rgba(196, 196, 196, 0.5);
     border: none;
     width: 100%;
+    height: 50%;
 }
 
 .select-order, .select-filter{
@@ -104,15 +105,16 @@ option{
 .section-back{
     display: flex;
     align-items: center;
-    background: #5C91CC;
     margin-left: 900px;
 }
 
 .button-back{
-    background: #5C91CC;
+    background: none;
     border-style: none;
     font-size: 35px;
+    border: none;
     cursor: pointer;
+    margin-left: auto;
 }
 /* end header*/
 
@@ -314,7 +316,7 @@ figcaption{
 
 .modal-dialog > section {
     max-width: 800px;
-    width: 30%;
+    width: 50%;
     position: relative;
     margin: 20% auto;
     padding: 20px;
@@ -360,31 +362,6 @@ figcaption{
 }
 /* end modal */
 
-/* Para pantallas menos de 1200px */
-
-/* @media (max-width: 1000px) {
-    header {
-        height: 120px;
-    }
-
-    .nav-home{
-        flex-wrap: wrap;
-    /* }
-
-    .section-selects{
-        flex-direction: column;
-    } */
-
-    /* .select-filter{
-        margin-top: 0;
-        flex-direction: column
-    }
-
-    .figure-poster{
-        margin: 25px 20px;
-    }
-}  */
-
 /* Para pantallas */
 @media screen and  (max-width: 1080px){
     header{
@@ -404,9 +381,13 @@ figcaption{
         margin-top: 0;
     }
 
-    .button-top {
+    .button-top{
         margin-top: 5%;
         font-size: 20px;
+    }
+
+    .button-back{
+        margin-top: 20%;
     }
 }
 
@@ -431,6 +412,10 @@ figcaption{
 
     .button-top {
         margin-top: 13%;
+    }
+
+    .button-back{
+        margin-top: 30%;
     }
 }
 
@@ -457,6 +442,10 @@ figcaption{
     .button-top {
         margin-top: 25%;
     }
+
+    .button-back{
+        margin-top: 35%;
+    }
 }
 
 /* Para pantallas de menos de 830px  */
@@ -474,7 +463,7 @@ figcaption{
 
 /* Para pantallas de menos de 576px  */
 @media (max-width: 560px) {
-    body {
+    body{
         background-size: 764px 510px;
     }
 }
@@ -488,15 +477,23 @@ figcaption{
     .button-top {
         margin-top:30%;
     }
+
+    .button-back {
+        margin-top:50%;
+    }
 }
 
 /* Para pantallas de menos de 320px  */
 @media (max-width: 320px) {
-    body {
+    body{
         background-size: 310px 226px;
     }
 
-    .button-top {
+    .button-top{
+        margin-top: 40%;
+    }
+
+    .button-back{
         margin-top: 40%;
     }
 }

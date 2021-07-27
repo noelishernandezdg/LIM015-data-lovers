@@ -2,6 +2,7 @@ import { filterData, filterFilmsById, sortDataAscending, sortDataDescending, sor
 import data from '../data/ghibli/ghibli.js';
 
 const home = document.getElementById("btnHome");
+const header = document.getElementById("header");
 const galleryFilms = document.getElementById("fila");
 const showInfo = document.getElementById("showInfo");
 const showInfoPoster = document.getElementById("showInfoPoster");
@@ -19,17 +20,18 @@ const selectPeople = document.querySelector("#selectPeople");
 
 
 /****************************************Ocultamos header y galeria***************************************/
-document.getElementById("header").style.display = "none";
+header.style.display = "none";
 document.getElementById("footer").style.display = "none";
 buttonTop.style.display = "none";
 galleryFilms.style.display = "none";
 showInfo.style.display = "none";
 showCharacters.style.display = "none";
+sectionBack.style.display = "none";
 
 function homeFilms() {
     home.style.display = "none";
     buttonTop.style.display = "flex";
-    document.getElementById("header").style.display= "flex";
+    header.style.display= "flex";
     document.getElementById("footer").style.display="flex";
     galleryFilms.style.display = "flex";
     showInfo.style.display = "flex";
@@ -72,8 +74,6 @@ function searchFilms(input, selector) {
         }
     });
 }
-
-
 
 /**************************************Mostrar info de cada personaje**************************************/
 function showCardPeople(data){
