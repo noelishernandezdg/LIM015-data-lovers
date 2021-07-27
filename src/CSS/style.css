@@ -48,18 +48,21 @@ header{
     width: 100%;
     top: 0;
     left: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 .nav-home, .section-selects{
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.section-logo{
+.section-logo, .section-search, .section-selects{
     flex-basis: auto;
 }
 
 .logo{
+    width: 100%;
     margin-top: 10px;
     margin-left: 15px;
 }
@@ -67,21 +70,31 @@ header{
 .input-search{
     color: white;
     font-size: 30px;
-    margin: 20px 30px;
-    flex-basis: auto;
+    margin-top: 20px;
+    margin-left: 25px;
     border-radius: 19px;
     background: rgba(196, 196, 196, 0.5);
     border: none;
+    width: 100%;
 }
 
 .select-order, .select-filter{
     color: #7B7D7D;
     font-size: 25px;
-    margin: 23px 20px;
     background: #F0F3F4;
     border-style: none;
     border-radius: 19px;
-    flex-basis: auto;
+    width: 100%;
+}
+
+.select-order{
+    margin-top: 25px;
+    margin-left: 35px;
+}
+
+.select-filter{
+    margin-top: 25px;
+    margin-left: 45px;
 }
 
 option{
@@ -347,100 +360,107 @@ figcaption{
 }
 /* end modal */
 
-
-/* Para pantallas */
-@media all and (min-width: 421px) and (max-width: 768px){
-    header{
-        background: #5C91CC;
-        height: 95px;
-        position: fixed;
-        width: 50%;
-        top: 0;
-        left: 0;
-        }
-
-    .nav-home, .section-selects{
-        width: 95%;
-        display: flex;
-        flex-direction: row;
-        }
-
-}
-
-@media all and (max-width: 420px){
-    header{
-        background: #5C91CC;
-        height: 95px;
-        position: fixed;
-        width: 50%;
-        top: 0;
-        left: 0;
-        }
-
-    .nav-home, .section-selects{
-        width: 50%;
-        display: flex;
-        flex-direction: row;
-        }
-}
-
-
-
-
-
 /* Para pantallas menos de 1200px */
 
-/* @media (max-width: 1200px) {
+/* @media (max-width: 1000px) {
     header {
         height: 120px;
     }
 
+    .nav-home{
+        flex-wrap: wrap;
+    /* }
+
     .section-selects{
         flex-direction: column;
-    }
+    } */
 
-    .select-filter{
+    /* .select-filter{
         margin-top: 0;
+        flex-direction: column
     }
 
     .figure-poster{
         margin: 25px 20px;
     }
-} */
+}  */
 
-/* Para pantallas menos de 1040px */
-/* @media (max-width: 1020px) {
-    header {
-        height: 180px;
+/* Para pantallas */
+@media screen and  (max-width: 1080px){
+    header{
+        height: 18%;
     }
-
 
     .nav-home{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .section-selects{
-        flex-direction: row;
-    }
-
-    .select-order, .select-filter{
-        margin: 0 3px;
         flex-basis: auto;
+        width: 100%;
     }
 
     .input-search{
-        margin: 10px 0;
-        flex-basis: auto;
+        margin-top: 20px;
     }
 
-    .figure-poster{
-        margin: 18px 20px;
+    .select-order, .select-filter{
+        margin-top: 0;
     }
-} */
+
+    .button-top {
+        margin-top: 5%;
+        font-size: 20px;
+    }
+}
+
+@media screen and  (max-width: 650px){
+    header{
+        height: 25%;
+    }
+
+    .nav-home{
+        flex-basis: auto;
+        width: 100%;
+    }
+
+    .input-search{
+        margin-top: 5px;
+    }
+
+    .select-order, .select-filter{
+        margin-top: 0;
+        margin-left: 5px;
+    }
+
+    .button-top {
+        margin-top: 13%;
+    }
+}
+
+@media screen and  (max-width: 535px){
+    header{
+        height: 30%;
+    }
+
+    .nav-home{
+        flex-basis: auto;
+        width: 100%;
+    }
+
+    .input-search{
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+
+    .select-order, .select-filter{
+        margin-top: 0;
+        margin-left: 5px;
+    }
+
+    .button-top {
+        margin-top: 25%;
+    }
+}
 
 /* Para pantallas de menos de 830px  */
-/* @media (max-width: 830px) {
+@media (max-width: 830px) {
     body {
         background-size: 906px 625px;
     }
@@ -450,25 +470,33 @@ figcaption{
         flex-direction: column;
         align-items: center;
     }
-} */
+}
 
 /* Para pantallas de menos de 576px  */
-/* @media (max-width: 560px) {
+@media (max-width: 560px) {
     body {
         background-size: 764px 510px;
     }
-} */
+}
 
 /* Para pantallas de menos de 460px  */
-/* @media (max-width: 460px) {
+@media (max-width: 460px) {
     body {
         background-size: 590px 411px;
     }
-} */
+
+    .button-top {
+        margin-top:30%;
+    }
+}
 
 /* Para pantallas de menos de 320px  */
-/* @media (max-width: 320px) {
+@media (max-width: 320px) {
     body {
         background-size: 310px 226px;
     }
-}  */
+
+    .button-top {
+        margin-top: 40%;
+    }
+}
