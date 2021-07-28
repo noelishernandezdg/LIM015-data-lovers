@@ -156,9 +156,21 @@ Para: poder encontrarlas más fácilmente.
 - Conectarlo al input search que ya tenemos.
 - Al tipear nos vaya mostrando el resultado (no tenemos botón de búsqueda).
 
+## Historia de usuario # 10
+
+Como: usuario.
+Quiero: poder ver info de los personajes principales de cada película.
+Para: comparar y conocer.
+
+## Criterios de aceptación
+
+- Crear en html un contenedor para el modal.
+- Agg la info del modal desde js.
+- Agg un escuchador que funcione cuando hagamos click o pasemos el cursor por encima.
+
 # Funcionamiento
 
-- Al ingresar encuentras un pagina de inicio con un botón que dice <<Home>>, que al darle click le envía a otra sección de la página.
+- Al ingresar encuentras un pagina de inicio con un botón, que al darle click le envía a otra sección de la página.
 - En la siguiente sección, se encuentra la galería de películas producidas por Studio Ghibli.
 - En la parte superior de la galería encontramos una barra de navegación, la cual contiene:
 - El logo de Studio Ghibli.
