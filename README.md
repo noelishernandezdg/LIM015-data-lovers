@@ -1,6 +1,6 @@
 # Preámbulo
 
-Studio Ghibli, es un estudio japonés de animación, considerado por la crítica especializada y muchos cinéfilos como uno de los mejores estudios de animación del mundo en la actualidad. 
+Studio Ghibli, es un estudio japonés de animación, considerado por la crítica especializada y muchos cinéfilos como uno de los mejores estudios de animación del mundo en la actualidad.
 Sus encantadores películas han acompañado a muchos durante su infancia y ha cautivado a muchos otros, que aun sin importad la edad, género o condición siguen disfrutando de las películas que ofrece ESTUDIO GHIBLI. Por ese motivo, decidimos trabajar con esta data y tenemos la idea de hacer un página linda y encantadora.
 
 # Aspecto visual
@@ -28,7 +28,7 @@ Quisimos agregar en el fondo (que realizamos nosotras mismas con la herramienta 
 
 ## Tipografías
 
-Utilizamos: 
+Utilizamos:
 - Monospace.
 
 Es una tipografía tipo Sans Serif, que expresan modernidad, cercanía y son legibles en distintos tamaños.
@@ -69,8 +69,8 @@ Para: Navegar de manera más fácil en la página y visualizarla bien desde cual
 Como: persona que usa páginas de películas.
 Quiero: ver todos los posters de las películas.
 Para: verlas todas y poder elegir.
- 
- ## Criterios de aceptación 
+
+ ## Criterios de aceptación
 
 - Investigar sobre.map.
 - Implementar.map para crear un nuevo array solamente con los posters.
@@ -95,7 +95,7 @@ Como: usuario
 Quiero: ver las películas según el director y/o el productor.
 Para: para identificar o comprar la calidad de la película.
 
-## Criterios de aceptación 
+## Criterios de aceptación
 
 - Investigar sobre filter.
 - Agregar opciones con los nombres de los directores.
@@ -107,7 +107,7 @@ Como: persona que usa páginas de películas.
 Quiero: ver todos los posters de las películas y poder ver las 10 películas más vistas o reconocidas.
 Para: verlas todas y poder elegir.
 
-## Criterios de aceptación 
+## Criterios de aceptación
 
 - Investigar sobre .map.
 - Implementar .map para crear un nuevo array solamente con los posters.

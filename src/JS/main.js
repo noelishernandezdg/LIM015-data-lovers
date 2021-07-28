@@ -18,7 +18,6 @@ const sectionSelects = document.querySelector(".section-selects");
 const sectionBack = document.querySelector(".section-back");
 const selectPeople = document.querySelector("#selectPeople");
 
-
 /****************************************Ocultamos header y galeria***************************************/
 header.style.display = "none";
 document.getElementById("footer").style.display = "none";
@@ -170,7 +169,6 @@ function showInfoFilms(data) {
         })
     });
 }
-
 
 function showPoster(){
     const imgPoster = document.querySelectorAll(".img-poster");
